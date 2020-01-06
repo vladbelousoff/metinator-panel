@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Персонажи</title>
+    <style>
+        .zui-table {
+            border: solid 1px #DDEEEE;
+            border-collapse: collapse;
+            border-spacing: 0;
+            font: normal 13px Arial, sans-serif;
+            width: 100%;
+        }
+        .zui-table thead th {
+            background-color: #DDEFEF;
+            border: solid 1px #DDEEEE;
+            color: #336B6B;
+            padding: 10px;
+            text-align: left;
+            text-shadow: 1px 1px 1px #fff;
+        }
+        .zui-table tbody td {
+            border: solid 1px #DDEEEE;
+            color: #333;
+            padding: 10px;
+            text-shadow: 1px 1px 1px #fff;
+        }
+    </style>
+</head>
+<body>
+    <table class="zui-table">
+        <thead>
+            <tr>
+                <th>Имя персонажа</th>
+                <th>Имя машины</th>
+                <th>Янги</th>
+                <th>Время последней синхронизации</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in characters %}
+            <tr>
+                <td>{{ c.name }}</td>
+                <td>{{ c.hostname }}</td>
+                <td>{{ c.yang }}</td>
+                <td>{{ c.updated_at|date:'H:i:s d.m.Y' }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
